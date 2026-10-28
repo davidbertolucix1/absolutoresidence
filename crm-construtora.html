@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YES Construtora · Corretores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ov-bg: #080a09;
+    --ov-bg-2: #101411;
+    --ov-gold: #c4a574;
+    --ov-gold-2: #e4c9a0;
+    --ov-cream: #f4efe6;
+    --ov-muted: #9a9388;
+    --ov-line: rgba(196, 165, 116, 0.22);
+    --ov-danger: #c45c4a;
+    --ov-ok: #7d9a6a;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--ov-bg); color: var(--ov-cream); }
+  body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  h1, h2, .ov-serif { font-family: Fraunces, Georgia, serif; font-weight: 560; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(32px, 4vw, 44px); margin: 8px 0 0; }
+  h2 { font-size: 28px; margin: 0; }
+  p { margin: 0; }
+  a { color: var(--ov-gold-2); }
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--ov-gold); outline-offset: 2px;
+  }
+  .grain {
+    pointer-events: none; position: fixed; inset: 0; z-index: 40; opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .shell { min-height: 100vh; display: grid; grid-template-columns: 250px 1fr; }
+  .side {
+    background: var(--ov-bg-2); border-right: 1px solid var(--ov-line);
+    padding: 22px 14px; display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand strong { display: block; font-family: Fraunces, Georgia, serif; font-size: 22px; font-weight: 560; }
+  .brand small { display: block; color: var(--ov-gold-2); letter-spacing: .08em; text-transform: uppercase; font-size: 10px; }
+  .who { color: var(--ov-muted); font-size: 13px; margin: 16px 0; line-height: 1.45; }
+  .nav { display: flex; flex-direction: column; gap: 4px; }
+  .nav-btn, .flow, .seg button, button.item, .linkcard, .lot {
+    cursor: pointer;
+  }
+  .nav-btn {
+    text-align: left; background: transparent; color: var(--ov-muted); border: 0; border-radius: 12px;
+    padding: 10px 12px; font-weight: 600;
+  }
+  .nav-btn.is-on { background: var(--ov-gold); color: #16120c; }
+  .nav-btn:hover:not(.is-on) { background: rgba(255,255,255,.05); color: var(--ov-cream); }
+  .side-foot { margin-top: auto; color: var(--ov-muted); font-size: 12px; padding: 12px; }
+  .main { min-width: 0; padding: 28px 22px 80px; max-width: 1180px; }
+  .ov-kicker { display: inline-flex; align-items: center; gap: 8px; color: var(--ov-gold-2); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+  .ov-kicker::before { content: ''; width: 22px; height: 1px; background: var(--ov-gold); }
+  .lead, .muted, .hint, .stat em { color: var(--ov-muted); }
+  .lead { max-width: 680px; margin-top: 10px; line-height: 1.5; }
+  .hint, .stat em, .muted { font-size: 12px; font-style: normal; }
+  .ov-card {
+    background: linear-gradient(180deg, rgba(244,239,230,.04), rgba(244,239,230,.015));
+    border: 1px solid var(--ov-line); border-radius: 18px;
+  }
+  .pad { padding: 16px; }
+  .stats, .metrics { display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr); }
+  .stats { margin-top: 22px; }
+  .stat { padding: 16px; }
+  .stat span { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ov-muted); }
+  .stat strong { display: block; margin-top: 6px; font-family: Fraunces, Georgia, serif; font-size: 28px; color: var(--ov-gold-2); }
+  .cards-2, .split, .carteira, .plan-layout { display: grid; gap: 16px; }
+  .cards-2 { margin-top: 16px; }
+  .linkcard { text-align: left; color: inherit; padding: 18px; background: transparent; }
+  .linkcard p { margin-top: 8px; }
+  .ov-btn {
+    display: inline-flex; align-items: center; justify-content: center; border-radius: 999px;
+    font-weight: 600; padding: 10px 16px; border: 1px solid transparent; cursor: pointer; text-decoration: none;
+  }
+  .ov-btn-gold { background: linear-gradient(135deg, #e4c9a0, #c4a574 42%, #9d7c4a); color: #16120c; }
+  .ov-btn-ghost { background: rgba(244,239,230,.04); border-color: var(--ov-line); color: var(--ov-cream); }
+  .ov-btn:disabled { opacity: .45; cursor: not-allowed; }
+  .row-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .spread { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+  .stack { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+  .field { display: block; margin-top: 12px; }
+  .lbl, .field span { display: block; margin-bottom: 6px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ov-muted); }
+  input, select, textarea {
+    width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--ov-line);
+    background: var(--ov-bg);
+  }
+  textarea { min-height: 84px; resize: vertical; }
+  select.slim { width: auto; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .city-uf { display: grid; grid-template-columns: 1fr 90px; gap: 10px; }
+  .cnpj-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: end; }
+  label.check { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 14px; }
+  label.check input { width: auto; margin-top: 2px; }
+  .err { color: var(--ov-danger); font-size: 13px; margin-top: 8px; }
+  .err:empty { display: none; }
+  .seg, .flows { display: flex; flex-wrap: wrap; gap: 8px; }
+  .flows { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+  .seg button, .flow {
+    border-radius: 14px; border: 1px solid var(--ov-line); background: transparent; color: inherit; padding: 8px 12px; font-weight: 600;
+  }
+  .seg button { border-radius: 999px; }
+  .flow { text-align: left; }
+  .flow small { display: block; margin-top: 4px; color: var(--ov-muted); font-size: 11px; font-weight: 500; line-height: 1.35; }
+  .flow.is-on, .seg button.is-on { background: var(--ov-gold); color: #16120c; border-color: var(--ov-gold); }
+  .flow.is-on small { color: #3d3426; }
+  .lot-panel .flows { grid-template-columns: 1fr; }
+  button.item { width: 100%; text-align: left; background: transparent; color: inherit; border: 1px solid var(--ov-line); border-radius: 14px; padding: 12px; margin-top: 8px; }
+  button.item.is-on { border-color: var(--ov-gold); }
+  button.item span, .client-meta { display: block; color: var(--ov-muted); font-size: 13px; margin-top: 4px; }
+  .linkish { background: none; border: 0; color: var(--ov-gold-2); font-weight: 600; cursor: pointer; padding: 0; }
+  .plan-sheet {
+    border: 1px solid var(--ov-line); border-radius: 18px; padding: 16px; overflow-x: auto;
+    background: linear-gradient(180deg, rgba(125,154,106,.08), transparent 90px), #101411;
+  }
+  .plan-head { display: flex; justify-content: space-between; gap: 12px; align-items: end; margin-bottom: 8px; }
+  .plan-head h2 { font-size: 28px; }
+  .plan-head .place { color: var(--ov-muted); font-size: 13px; }
+  .road {
+    text-align: center; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ov-muted);
+    border-top: 1px dashed rgba(196,165,116,.35); border-bottom: 1px dashed rgba(196,165,116,.35);
+    padding: 6px; margin: 8px 0;
+  }
+  .quadra > p { margin: 0 0 6px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ov-gold-2); }
+  .lots { display: grid; gap: 6px; }
+  .lots.qa, .lots.qb { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .lots.qc { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .lot {
+    position: relative; min-height: 64px; border-radius: 10px; border: 1px solid rgba(196,165,116,.28);
+    background: #121614; color: var(--ov-cream); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 8px 4px;
+  }
+  .lot strong { font-family: Fraunces, Georgia, serif; font-size: 13px; font-weight: 560; }
+  .lot > span { font-size: 11px; opacity: .7; }
+  .lot.reservado { border-style: dashed; }
+  .lot.vendido, tr.is-lock { opacity: .45; }
+  .lot.vendido strong { text-decoration: line-through; }
+  .lot.is-lock, tr.is-lock { cursor: not-allowed; }
+  .lot.is-on { background: var(--ov-gold); color: #16120c; border-style: solid; border-color: var(--ov-gold); }
+  .lot:hover:not(.is-lock):not(.is-on) { border-color: var(--ov-gold); }
+  .ord {
+    position: absolute; top: 4px; right: 4px; width: 16px; height: 16px; border-radius: 99px;
+    background: #16120c; color: #e4c9a0; font-size: 10px; display: grid; place-items: center;
+  }
+  .bosque {
+    margin-top: 8px; padding: 14px; border-radius: 12px; text-align: center;
+    background: rgba(125,154,106,.14); color: #cfe0c4; font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; font-size: 12px; color: var(--ov-muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgba(196,165,116,.45); background: #121614; }
+  .sw.reservado { border-style: dashed; }
+  .sw.vendido { opacity: .4; }
+  .sw.is-on { background: var(--ov-gold); border-color: var(--ov-gold); }
+  .lot-panel { padding: 16px; }
+  .money-stack div { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-top: 1px solid var(--ov-line); font-size: 14px; }
+  .money-stack .big strong { font-family: Fraunces, Georgia, serif; font-size: 26px; color: var(--ov-gold-2); }
+  .table-wrap { margin-top: 16px; padding: 14px; overflow-x: auto; }
+  .table-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
+  .table-tools input { flex: 1 1 220px; max-width: none; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ov-muted); padding: 8px; }
+  td { padding: 9px 8px; border-top: 1px solid var(--ov-line); }
+  tbody tr { cursor: pointer; }
+  tbody tr.is-on td { background: rgba(196,165,116,.14); }
+  .flag { margin-top: 16px; color: var(--ov-gold-2); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .chips span { border: 1px solid var(--ov-line); border-radius: 999px; padding: 4px 10px; font-size: 12px; color: var(--ov-gold-2); }
+  .sheet { margin-top: 14px; background: #f4efe6; color: #16120c; border-radius: 18px; padding: 28px 22px 36px; color-scheme: light; }
+  .sheet-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+  .sheet .eyebrow { letter-spacing: .14em; text-transform: uppercase; font-size: 11px; font-weight: 600; color: #7a6850; margin-top: 18px; }
+  .sheet h2 { font-size: clamp(26px, 3vw, 34px); margin-top: 8px; }
+  .sheet h3 { font-family: Inter, sans-serif; font-size: 14px; margin: 0 0 4px; }
+  .sheet p { line-height: 1.55; overflow-wrap: break-word; }
+  .clause { margin-top: 16px; font-size: 14px; }
+  .clause p { white-space: pre-wrap; opacity: .82; }
+  .metrics { margin-top: 16px; }
+  .metrics p { font-size: 14px; }
+  .signs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; padding-top: 16px; border-top: 1px solid rgba(22,18,12,.12); }
+  .sig { display: block; height: 88px; max-width: 260px; object-fit: contain; object-position: left center; }
+  .sheet .muted { color: #6d6458; }
+  #pad { width: 100%; height: 140px; background: #fff; border-radius: 12px; touch-action: none; cursor: crosshair; display: block; }
+  .pad-box { margin-top: 14px; }
+  .gate {
+    min-height: 100vh; display: grid; place-items: center; padding: 28px 16px;
+    background: radial-gradient(900px 480px at 50% 0%, rgba(196,165,116,.16), transparent 60%), var(--ov-bg);
+  }
+  .gate-card { width: min(440px, 100%); text-align: left; }
+  .gate-card h1 { margin-top: 12px; }
+  .gate-card .lead { margin-bottom: 22px; }
+  .google-btn {
+    width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px;
+    background: #fff; color: #1f1f1f; border: 0; border-radius: 999px; padding: 12px 16px;
+    font-weight: 600; cursor: pointer;
+  }
+  .google-btn:disabled { opacity: .7; cursor: wait; }
+  .google-btn svg { width: 18px; height: 18px; flex: none; }
+  .logout { margin-top: 8px; background: transparent; border: 0; color: var(--ov-muted); text-align: left; cursor: pointer; padding: 8px 12px; }
+  details summary { cursor: pointer; font-weight: 600; }
+  @media (min-width: 760px) {
+    .cards-2, .split { grid-template-columns: 1fr 1fr; }
+    .sheet { padding: 42px 48px; }
+  }
+  @media (min-width: 980px) {
+    .carteira, .plan-layout { grid-template-columns: 1.35fr .85fr; align-items: start; }
+    .carteira-form, .lot-panel { position: sticky; top: 12px; }
+  }
+  @media (max-width: 900px) {
+    .shell { display: block; }
+    .side { position: sticky; top: 0; z-index: 5; height: auto; border-right: 0; border-bottom: 1px solid var(--ov-line); }
+    .nav { flex-direction: row; overflow: auto; }
+    .who, .side-foot { display: none; }
+    .nav-btn { white-space: nowrap; }
+    .stats, .metrics, .flows, .grid-2, .signs { grid-template-columns: 1fr; }
+    .lots.qa, .lots.qb, .lots.qc { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media print {
+    @page { margin: 14mm; }
+    body { background: #fff; }
+    body * { visibility: hidden; }
+    .sheet, .sheet * { visibility: visible; }
+    .sheet { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; }
+    .no-print, .no-print * { display: none !important; visibility: hidden !important; }
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<noscript>Ative o JavaScript para usar a área dos corretores.</noscript>
+<script src="unidades.js"></script>
+<script>
+const KEY = 'yes-absoluto-crm-v1';
+const AUTH_KEY = 'yes-oauth-demo';
+const COMMISSION_RATE = 0.06;
+const ENTRADA_RATE = 0.1;
+const DIRETO_TERM = 72;
+const FOLLOWUP_DAYS = 7;
+const UFS = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
+const FLOWS = [
+  { id: 'direto', name: 'Direto com a construtora', short: 'Direto', tag: 'Entrada de 10% + saldo em até 72x. Correção pelo CUB/SC.' },
+  { id: 'avista', name: 'À vista', short: 'À vista', tag: 'Valor integral da tabela, em parcela única.' },
+];
+const CONTRACT_LABEL = { rascunho: 'Rascunho', enviado: 'Enviado', assinado: 'Assinado', pago: 'Pago' };
+const COMMISSION_LABEL = { pendente: 'Pendente', a_receber: 'A receber', recebido: 'Recebido', bloqueado: 'Bloqueado' };
+const STATUS_LABEL = { disponivel: 'Disponível', reservado: 'Reservado', vendido: 'Vendido' };
+const CLIENT_LABEL = { prospecto: 'Interessado', ativo: 'Em negociação', perdido: 'Perdido' };
+const TITLES = { inicio: 'Início', carteira: 'Carteira', planta: 'Tabela', contratos: 'Contratos', comissoes: 'Comissões', painel: 'Painel' };
+const FILTERS = [['todos','Todos'],['prospecto','Interessados'],['ativo','Em negociação'],['perdido','Perdidos']];
+const LOT_FILTERS = [['todos','Todos'],['disponivel','Disponíveis'],['reservado','Reservados'],['vendido','Vendidos']];
+
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (ch) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[ch]));
+}
+function uid(prefix) {
+  return prefix + '-' + Math.random().toString(36).slice(2, 8) + '-' + Date.now().toString(36);
+}
+function round(n) { return Math.round((Number(n) + Number.EPSILON) * 100) / 100; }
+function money(value) {
+  return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(value) || 0);
+}
+function formatDate(iso) {
+  const date = iso instanceof Date ? iso : new Date(iso);
+  if (!Number.isFinite(date.getTime())) return '—';
+  return new Intl.DateTimeFormat('pt-BR').format(date);
+}
+function daysAgo(n) { return new Date(Date.now() - n * 86400000).toISOString(); }
+function daysBetween(iso) {
+  const t = new Date(iso).getTime();
+  if (!Number.isFinite(t)) return 0;
+  return Math.floor((Date.now() - t) / 86400000);
+}
+function nextMonday() {
+  const date = new Date();
+  date.setHours(0, 0, 0, 0);
+  date.setDate(date.getDate() + ((1 - date.getDay() + 7) % 7));
+  return date;
+}
+function maskCpf(v) {
+  const d = String(v || '').replace(/\D/g, '').slice(0, 11);
+  let out = d.slice(0, 3);
+  if (d.length > 3) out += '.' + d.slice(3, 6);
+  if (d.length > 6) out += '.' + d.slice(6, 9);
+  if (d.length > 9) out += '-' + d.slice(9, 11);
+  return out;
+}
+function maskCnpj(v) {
+  const d = String(v || '').replace(/\D/g, '').slice(0, 14);
+  let out = d.slice(0, 2);
+  if (d.length > 2) out += '.' + d.slice(2, 5);
+  if (d.length > 5) out += '.' + d.slice(5, 8);
+  if (d.length > 8) out += '/' + d.slice(8, 12);
+  if (d.length > 12) out += '-' + d.slice(12, 14);
+  return out;
+}
+function maskPhone(v) {
+  const d = String(v || '').replace(/\D/g, '').slice(0, 11);
+  if (!d) return '';
+  if (d.length < 3) return '(' + d;
+  if (d.length < 7) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+  if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+  return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+}
+function applyMask(kind, value) {
+  if (kind === 'doc') return S.form.kind === 'pj' ? maskCnpj(value) : maskCpf(value);
+  if (kind === 'phone') return maskPhone(value);
+  return value;
+}
+function parseMoney(v) {
+  let raw = String(v ?? '').trim().replace(/\s/g, '');
+  if (!raw) return 0;
+  if (raw.includes(',')) return Number(raw.replace(/\./g, '').replace(',', '.')) || 0;
+  if (/^\d{1,3}(\.\d{3})+$/.test(raw)) return Number(raw.replace(/\./g, '')) || 0;
+  return Number(raw) || 0;
+}
+function whatsappHref(phone) {
+  const d = String(phone || '').replace(/\D/g, '');
+  if (!d) return '';
+  return 'https://wa.me/' + (d.startsWith('55') ? d : '55' + d);
+}
+function flowById(id) { return FLOWS.find((item) => item.id === id) || FLOWS[1]; }
+function addr(c) {
+  if (!c) return '—';
+  const city = [c.city, c.state].filter(Boolean).join('/');
+  return [c.address, city].filter(Boolean).join(' — ') || '—';
+}
+function emptyForm() {
+  return {
+    kind: 'pf', name: '', doc: '', rg: '', civil: 'solteiro(a)', profession: '',
+    contactName: '', role: '', address: '', city: '', state: 'SC', whatsapp: '', email: '',
+    notes: '', origem: 'autonomo', imobiliaria: '', status: 'prospecto',
+  };
+}
+function defaultDraft() {
+  return {
+    clientId: '', flowId: 'direto', term: 72, entradaRate: 0.1, customEntrada: '',
+    vagas: 0, itbiComprador: true, permuta: false, fgts: false, lotIds: [],
+  };
+}
+function defaultUi() {
+  return {
+    filter: 'todos', editing: null, lotFilter: 'todos', tipoFilter: 'todos', lotSearch: '',
+    contractMode: 'live', previewId: null, lookupError: '', importMsg: '', looking: false,
+  };
+}
+function logo(size) {
+  return `<svg viewBox="0 0 48 48" width="${size}" height="${size}" role="img" aria-label="YES Construtora"><rect width="48" height="48" rx="10" fill="#101411"/><rect x="0.6" y="0.6" width="46.8" height="46.8" rx="9.4" fill="none" stroke="rgba(196,165,116,0.35)"/><path d="M24 9 39 24 24 39 9 24Z" fill="none" stroke="#C4A574" stroke-width="1.4"/><path d="M24 17 31 24 24 31 17 24Z" fill="#C4A574"/></svg>`;
+}
+function googleMark() {
+  return '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 8 3.1l5.7-5.7C34.2 6.1 29.4 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 12 24 12c3.1 0 5.8 1.2 8 3.1l5.7-5.7C34.2 6.1 29.4 4 24 4 16.3 4 9.6 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 10-2 13.6-5.2l-6.3-5.3C29.3 35.1 26.8 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.2-3.5 5.7-6.6 7.1l6.3 5.3C37.4 38.4 44 33 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg>';
+}
+function authed() {
+  try { return sessionStorage.getItem(AUTH_KEY) === 'david'; } catch (err) { return false; }
+}
+function formatArea(value) {
+  return new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 1 }).format(Number(value) || 0);
+}
+function unitLabel(lot) {
+  if (!lot) return '';
+  if (lot.kind === 'moto') return 'Box de moto ' + lot.id + ', ' + formatArea(lot.area) + ' m²';
+  return 'Unidade ' + lot.id + ', ' + lot.tipo + ', ' + formatArea(lot.area) + ' m², ' + lot.dorms + ' dorm., box ' + lot.box;
+}
+function buildLots() {
+  const book = window.ABSOLUTO || { units: [], boxes: [] };
+  const units = book.units.map((item) => ({
+    id: item.id, kind: 'unidade', tipo: item.tipo, area: item.area, dorms: item.dorms, box: item.box, price: item.price, base: 'disponivel',
+  }));
+  const boxes = book.boxes.map((item) => ({
+    id: item.id, kind: 'moto', tipo: 'Box moto', area: item.area, dorms: 0, box: '—', price: item.price, base: 'disponivel',
+  }));
+  return units.concat(boxes);
+}
+function buildClients() {
+  return [
+    {
+      id: 'cli-helena', kind: 'pf', name: 'Helena Duarte', doc: '111.111.111-11', rg: '10.000.000-0',
+      civil: 'casado(a)', profession: 'arquiteta', contactName: '', role: '',
+      address: 'Rua das Gaivotas, 120', city: 'Porto Belo', state: 'SC', whatsapp: '(47) 99901-2200',
+      email: 'helena.duarte@example.com', notes: 'Quer um studio, para morar ou investir.',
+      origem: 'autonomo', imobiliaria: '', status: 'prospecto', createdAt: daysAgo(20), lastTouchAt: daysAgo(10),
+    },
+    {
+      id: 'cli-campo', kind: 'pj', name: 'Estúdio Campo Verde Ltda.', doc: '00.000.000/0001-91', rg: '',
+      civil: '', profession: '', contactName: 'Paulo Vieira', role: 'sócio',
+      address: 'Av. Brasil, 2100', city: 'Balneário Camboriú', state: 'SC', whatsapp: '(47) 99918-4411',
+      email: 'paulo@campoverde.example', notes: 'Reserva de um loft para a empresa.',
+      origem: 'imobiliaria', imobiliaria: 'Serra Imóveis', status: 'ativo', createdAt: daysAgo(12), lastTouchAt: daysAgo(1),
+    },
+    {
+      id: 'cli-ricardo', kind: 'pf', name: 'Ricardo Blum', doc: '222.222.222-22', rg: '',
+      civil: 'solteiro(a)', profession: 'comerciante', contactName: '', role: '',
+      address: '', city: 'Itapema', state: 'SC', whatsapp: '(47) 99810-3300',
+      email: '', notes: 'Pediu preço e não retornou.',
+      origem: 'autonomo', imobiliaria: '', status: 'perdido', createdAt: daysAgo(40), lastTouchAt: daysAgo(30),
+    },
+  ];
+}
+function seed() {
+  const state = {
+    view: 'inicio',
+    company: {
+      legalName: 'YES Construtora',
+      cnpj: '—',
+      address: 'Avenida Francisco Severiano dos Santos, 717, Porto Belo/SC',
+      email: '—',
+    },
+    rep: {
+      fullName: 'David', creci: 'CRECI-SC', kind: 'Corretor',
+      phone: '—', city: 'Porto Belo', state: 'SC',
+    },
+    project: {
+      name: 'Absoluto Residence', city: 'Porto Belo', state: 'SC',
+      registry: 'matrículas 13.904 e 13.892, Registro de Imóveis de Porto Belo/SC',
+    },
+    lots: buildLots(),
+    clients: buildClients(),
+    contracts: [],
+    draft: defaultDraft(),
+    form: emptyForm(),
+    ui: defaultUi(),
+    padData: '',
+    padDirty: false,
+  };
+  state.draft.clientId = 'cli-helena';
+  return state;
+}
+function load() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (!raw) return seed();
+    const data = JSON.parse(raw);
+    if (!data || !Array.isArray(data.lots) || !data.company || !data.project || !data.rep) return seed();
+    data.form = Object.assign(emptyForm(), data.form || {});
+    data.draft = Object.assign(defaultDraft(), data.draft || {});
+    data.ui = Object.assign(defaultUi(), data.ui || {});
+    data.ui.looking = false;
+    data.contracts = Array.isArray(data.contracts) ? data.contracts : [];
+    data.clients = Array.isArray(data.clients) ? data.clients : [];
+    data.padData = '';
+    data.padDirty = false;
+    return data;
+  } catch (err) {
+    return seed();
+  }
+}
+function persist() {
+  try {
+    const copy = Object.assign({}, S);
+    delete copy.padData;
+    delete copy.padDirty;
+    localStorage.setItem(KEY, JSON.stringify(copy));
+  } catch (err) {
+    window.alert('Não foi possível salvar neste navegador.');
+  }
+}
+function clientOf(id) { return S.clients.find((item) => item.id === id); }
+function selectedLots() {
+  return S.draft.lotIds.map((id) => S.lots.find((lot) => lot.id === id)).filter(Boolean);
+}
+function isLocked(lot) {
+  if (!lot) return true;
+  if (lot.base === 'vendido') return true;
+  return S.contracts.some((item) => item.lotIds.includes(lot.id));
+}
+function displayStatus(lot) {
+  if (S.contracts.some((item) => item.lotIds.includes(lot.id) && item.status === 'pago')) return 'vendido';
+  if (lot.base === 'vendido') return 'vendido';
+  if (S.contracts.some((item) => item.lotIds.includes(lot.id))) return 'reservado';
+  if (lot.base === 'reservado') return 'reservado';
+  return 'disponivel';
+}
+function counts() {
+  const tally = { disponivel: 0, reservado: 0, vendido: 0 };
+  S.lots.forEach((lot) => { tally[displayStatus(lot)] += 1; });
+  return tally;
+}
+function followups() {
+  return S.clients.filter((item) => item.status === 'prospecto' && daysBetween(item.lastTouchAt) >= FOLLOWUP_DAYS);
+}
+function quoteFrom(lots, flowId) {
+  const flow = flowById(flowId);
+  const book = window.ABSOLUTO || {};
+  if (!lots.length) {
+    return {
+      flowId: flow.id, flowName: flow.name, lines: [], table: 0, remainder: 0, billed: 0,
+      note: 'Selecione uma unidade na tabela.', sale: 0, entrada: 0, saldo: 0, parcela: 0,
+      commission: 0, discountLabel: '', term: DIRETO_TERM, entradaRate: ENTRADA_RATE,
+    };
+  }
+  const lines = lots.map((lot) => ({ lot, value: round(lot.price), label: 'tabela de 16.10.2026' }));
+  const table = round(lines.reduce((acc, line) => acc + line.value, 0));
+  const note = (book.note || '') + ' ' + (book.payment || 'Entrada de 10% + saldo em até 72x. Correção pelo CUB/SC.');
+  let sale = table;
+  let entrada = 0;
+  let saldo = 0;
+  let parcela = 0;
+  let discountLabel = 'valor de tabela, sem desconto lançado';
+  if (flow.id === 'avista') {
+    entrada = sale;
+    discountLabel = 'à vista, valor integral da tabela';
+  } else {
+    entrada = round(table * ENTRADA_RATE);
+    saldo = round(table - entrada);
+    sale = round(entrada + saldo);
+    parcela = round(saldo / DIRETO_TERM);
+    discountLabel = '10% de entrada e saldo em 72x, corrigido pelo CUB/SC';
+  }
+  return {
+    flowId: flow.id, flowName: flow.name, lines, table, remainder: 0, billed: lots.length, note,
+    sale, entrada, saldo, parcela, commission: round(sale * COMMISSION_RATE),
+    discountLabel, term: DIRETO_TERM, entradaRate: ENTRADA_RATE,
+  };
+}
+function currentQuote() {
+  return quoteFrom(selectedLots(), S.draft.flowId);
+}
+function blockReason() {
+  if (!clientOf(S.draft.clientId)) return 'Escolha o comprador.';
+  if (!S.draft.lotIds.length) return 'Selecione ao menos uma unidade na tabela.';
+  return '';
+}
+function nextNumber(state) {
+  const year = new Date().getFullYear();
+  let max = 0;
+  state.contracts.forEach((item) => {
+    const n = Number(String(item.number).split('-').pop());
+    if (Number.isFinite(n)) max = Math.max(max, n);
+  });
+  return 'YES-' + year + '-' + String(max + 1).padStart(3, '0');
+}
+function flagsOf(draft, client) {
+  return {
+    vagas: Math.max(0, Number(draft.vagas) || 0),
+    itbiComprador: Boolean(draft.itbiComprador),
+    permuta: Boolean(draft.permuta),
+    fgts: Boolean(draft.fgts),
+    origem: client ? client.origem : 'autonomo',
+    imobiliaria: client ? client.imobiliaria : '',
+  };
+}
+function buildRecord(state, draft) {
+  const lots = draft.lotIds.map((id) => state.lots.find((lot) => lot.id === id)).filter(Boolean);
+  const client = state.clients.find((item) => item.id === draft.clientId);
+  const quote = quoteFrom(lots, draft.flowId);
+  const now = new Date().toISOString();
+  return {
+    id: uid('ctr'),
+    number: nextNumber(state),
+    createdAt: now,
+    clientId: client.id,
+    lotIds: lots.map((lot) => lot.id),
+    flowId: draft.flowId,
+    term: quote.term,
+    entradaRate: quote.entradaRate,
+    customEntrada: draft.customEntrada,
+    vagas: Math.max(0, Number(draft.vagas) || 0),
+    itbiComprador: Boolean(draft.itbiComprador),
+    permuta: Boolean(draft.permuta),
+    fgts: Boolean(draft.fgts),
+    sale: quote.sale,
+    entrada: quote.entrada,
+    saldo: quote.saldo,
+    parcela: quote.parcela,
+    commission: quote.commission,
+    status: 'rascunho',
+    commissionStatus: 'pendente',
+    sentAt: null,
+    signedAt: null,
+    paidAt: null,
+    receivedAt: null,
+    signature: '',
+    snapshot: {
+      quote,
+      client: Object.assign({}, client),
+      lots: lots.map((lot) => Object.assign({}, lot)),
+      company: Object.assign({}, state.company),
+      rep: Object.assign({}, state.rep),
+      project: Object.assign({}, state.project),
+      flags: flagsOf(draft, client),
+    },
+  };
+}
+function liveDoc() {
+  const client = clientOf(S.draft.clientId);
+  return {
+    preview: true,
+    number: 'PRÉVIA',
+    createdAt: new Date().toISOString(),
+    quote: currentQuote(),
+    client: client || {
+      kind: 'pf', name: '', doc: '', rg: '', civil: '', profession: '', contactName: '', role: '',
+      address: '', city: '', state: '', email: '', whatsapp: '', origem: 'autonomo', imobiliaria: '',
+    },
+    lots: selectedLots(),
+    company: S.company,
+    rep: S.rep,
+    project: S.project,
+    flags: flagsOf(S.draft, client),
+    signature: '',
+    status: '',
+    id: '',
+  };
+}
+function docFromRecord(rec) {
+  return {
+    preview: false,
+    number: rec.number,
+    createdAt: rec.createdAt,
+    quote: rec.snapshot.quote,
+    client: rec.snapshot.client,
+    lots: rec.snapshot.lots,
+    company: rec.snapshot.company,
+    rep: rec.snapshot.rep,
+    project: rec.snapshot.project,
+    flags: rec.snapshot.flags,
+    signature: rec.signature,
+    status: rec.status,
+    id: rec.id,
+  };
+}
+function clauses(doc) {
+  const c = doc.client;
+  const q = doc.quote;
+  const f = doc.flags;
+  const buyer = !c.name
+    ? 'comprador ainda não escolhido na carteira'
+    : c.kind === 'pj'
+      ? c.name + ', pessoa jurídica inscrita no CNPJ sob nº ' + (c.doc || '—') + ', com sede em ' + addr(c) + ', representada por ' + (c.contactName || '—') + ', ' + (c.role || 'representante') + ', e-mail ' + (c.email || '—') + ', WhatsApp ' + (c.whatsapp || '—')
+      : c.name + ', ' + (c.civil || 'estado civil não informado') + ', ' + (c.profession || 'profissão não informada') + ', inscrito(a) no CPF sob nº ' + (c.doc || '—') + ', RG ' + (c.rg || '—') + ', residente em ' + addr(c) + ', e-mail ' + (c.email || '—') + ', WhatsApp ' + (c.whatsapp || '—');
+  const seller = doc.company.legalName + ', inscrita no CNPJ sob nº ' + doc.company.cnpj + ', com sede em ' + doc.company.address + ', e-mail ' + doc.company.email;
+  const lotList = doc.lots.length
+    ? doc.lots.map((lot) => '• ' + unitLabel(lot) + '. Valor de tabela: ' + money(lot.price) + '.').join('\n')
+    : '• Nenhuma unidade marcada. A tabela define o objeto.';
+  let price = 'O preço entra quando ao menos uma unidade é marcada na tabela. Fluxo escolhido: ' + q.flowName + '.';
+  if (doc.lots.length && q.flowId === 'avista') {
+    price = 'Tabela do conjunto: ' + money(q.table) + '. ' + q.note + '\n\nÀ vista, pelo valor integral da tabela, sem desconto lançado neste instrumento. Valor de venda: ' + money(q.sale) + ', pago em parcela única na assinatura. Não há saldo parcelado.';
+  } else if (doc.lots.length) {
+    price = 'Tabela do conjunto: ' + money(q.table) + '. ' + q.note + '\n\nEntrada de 10% na assinatura: ' + money(q.entrada) + '.\n\nSaldo de ' + money(q.saldo) + ', em até ' + q.term + ' parcelas mensais de ' + money(q.parcela) + ', direto com a construtora. Os valores seguem correção pelo CUB/SC.\n\nValor de venda deste instrumento: ' + money(q.sale) + '.';
+  }
+  const origem = c.origem === 'imobiliaria'
+    ? 'Participação da imobiliária ' + (c.imobiliaria || 'parceira') + ', a repartir com o corretor conforme o ajuste entre eles.'
+    : 'Atendimento direto do corretor autônomo, sem imobiliária parceira nesta reserva.';
+  const priceLines = q.lines.length
+    ? q.lines.map((line) => unitLabel(line.lot) + ': ' + money(line.value) + ' (' + line.label + ').').join('\n')
+    : 'Sem unidades na conta.';
+  return [
+    { h: '1. Das partes', body: 'De um lado, ' + seller + ', doravante INCORPORADORA. De outro, ' + buyer + ', doravante ' + (c.kind === 'pj' ? 'COMPRADORA' : 'COMPRADOR(A)') + '.' },
+    { h: '2. Do objeto', body: 'Promessa de compra e venda de unidade(s) do ' + doc.project.name + ', em ' + doc.project.city + '/' + doc.project.state + ', ' + (window.ABSOLUTO ? ABSOLUTO.address : '') + ' (' + doc.project.registry + ').\n\n' + lotList },
+    { h: '3. Do preço e da forma de pagamento', body: price },
+    { h: '4. Das unidades e da tabela', body: priceLines + '\n' + q.note },
+    { h: '5. Das vagas', body: f.vagas > 0 ? 'Vagas extras: ' + f.vagas + ' unidade(s) sinalizada(s) para orçamento à parte. Não entram neste preço.' : 'Vaga extra não está inclusa. Se for desejada, será orçada em aditivo.' },
+    { h: '6. Do ITBI e do registro', body: f.itbiComprador ? 'ITBI, emolumentos e registro do imóvel correm por conta do comprador.' : 'Nesta reserva, a incorporadora assume ITBI e registro. Demais despesas seguem o aditivo, se houver.' },
+    { h: '7. Da permuta', body: f.permuta ? 'As partes registram permuta parcial. O valor de venda acima permanece como referência. O bem, a avaliação e a diferença serão formalizados em aditivo antes da assinatura definitiva.' : 'Não há permuta. O preço é pago em moeda corrente, na forma da cláusula 3.' },
+    { h: '8. Do FGTS', body: 'O plano da tabela de 16.10.2026 é direto com a construtora ou à vista. Esta minuta não prevê uso de FGTS.' },
+    { h: '9. Da reserva', body: 'Ao gerar esta minuta, a unidade fica reservada no acesso dos corretores. A reserva se converte em venda quando o pagamento é confirmado. Até lá, a incorporadora pode liberar a unidade se a minuta for descartada ainda em rascunho.' },
+    { h: '10. Do corretor', body: 'A intermediação é de ' + doc.rep.fullName + ', ' + doc.rep.creci + ', ' + doc.rep.kind + ', praça ' + doc.rep.city + '/' + doc.rep.state + ', contato ' + doc.rep.phone + '. A comissão é de 6% sobre o valor de venda (' + money(q.commission) + '), devida pela incorporadora ao corretor, e não se soma ao preço do comprador. ' + origem },
+    { h: '11. Da rescisão, dos dados e do foro', body: 'A rescisão antes da quitação não devolve automaticamente a entrada já prestada para reservar a unidade, salvo acordo escrito. Parcelas vencidas do fluxo direto permanecem devidas.\n\nOs dados pessoais são usados só para esta reserva, na forma da Lei nº 13.709/2018.\n\nForo da comarca de ' + doc.project.city + '/' + doc.project.state + '. Esta minuta é de apresentação comercial e não produz efeito jurídico. Valores em reais, conforme a tabela de 16.10.2026.' },
+  ];
+}
+function sheetHtml(doc) {
+  const q = doc.quote;
+  const thirdLabel = q.flowId === 'direto' ? q.term + ' parcelas' : 'Forma';
+  const thirdValue = q.flowId === 'direto' ? money(q.parcela) : q.flowName;
+  const chips = [
+    q.flowName,
+    doc.lots.length + ' unidade(s)',
+    q.discountLabel,
+    doc.flags.itbiComprador ? 'ITBI do comprador' : 'ITBI da incorporadora',
+    doc.flags.permuta ? 'Com permuta' : 'Sem permuta',
+    doc.flags.vagas ? doc.flags.vagas + ' vaga(s) extra(s)' : 'Sem vaga extra',
+  ];
+  if (q.flowId === 'financiamento') chips.push(doc.flags.fgts ? 'Com FGTS' : 'Sem FGTS');
+  const meta = doc.preview
+    ? 'Prévia das marcações · ' + (doc.client.name || 'sem comprador')
+    : doc.client.name + ' · ' + formatDate(doc.createdAt) + ' · ' + (CONTRACT_LABEL[doc.status] || '');
+  const flag = q.sale > 0
+    ? '<p class="flag no-print">Comissão do corretor: 6% de ' + money(q.sale) + ' = <strong>' + money(q.commission) + '</strong>. A parcela não comissiona de novo.</p>'
+    : '';
+  return flag +
+    '<div class="chips no-print">' + chips.filter(Boolean).map((item) => '<span>' + esc(item) + '</span>').join('') + '</div>' +
+    '<article class="sheet"><div class="sheet-top"><div class="brand">' + logo(36) + '<span><strong>YES</strong><small>Construtora</small></span></div><p><strong>' + esc(doc.number) + '</strong></p></div>' +
+    '<p class="eyebrow">Instrumento particular · minuta fictícia</p><h2>Promessa de compra e venda — ' + esc(doc.project.name) + '</h2><p class="muted" style="margin-top:8px">' + esc(meta) + '</p>' +
+    '<div class="metrics"><p>Valor de venda<br><strong>' + money(q.sale) + '</strong></p><p>Entrada<br><strong>' + money(q.entrada) + '</strong></p><p>' + esc(thirdLabel) + '<br><strong>' + esc(thirdValue) + '</strong></p></div>' +
+    clauses(doc).map((item) => '<section class="clause"><h3>' + item.h + '</h3><p>' + esc(item.body) + '</p></section>').join('') +
+    '<div class="signs"><div><p><strong>Comprador</strong></p>' + (doc.signature ? '<img class="sig" alt="Assinatura" src="' + doc.signature + '">' : '<p class="muted">Sem assinatura</p>') + '<p>' + esc(doc.client.name || '—') + '</p></div><div><p><strong>Incorporadora</strong></p><p class="muted">Minuta de apresentação</p><p>' + esc(doc.company.legalName) + '</p></div></div></article>' +
+    padAndActions(doc);
+}
+function actionButtons(rec) {
+  const id = rec.id;
+  const bits = [];
+  if (!rec.signature) bits.push('<button type="button" class="ov-btn ov-btn-gold" id="btn-sign" data-act="sign" data-id="' + id + '"' + (S.padDirty ? '' : ' disabled') + '>Assinar</button>');
+  if (rec.status === 'rascunho') bits.push('<button type="button" class="ov-btn ov-btn-ghost" data-act="send" data-id="' + id + '">Marcar enviado</button>');
+  if (rec.status !== 'pago') bits.push('<button type="button" class="ov-btn ov-btn-ghost" data-act="paid" data-id="' + id + '">Confirmar pagamento</button>');
+  bits.push('<button type="button" class="ov-btn ov-btn-ghost" data-act="print">Imprimir</button>');
+  if (rec.status === 'rascunho') bits.push('<button type="button" class="ov-btn ov-btn-ghost" data-act="discard" data-id="' + id + '">Descartar</button>');
+  return bits.join('');
+}
+function padAndActions(doc) {
+  if (doc.preview) return '<div class="row-btns no-print"><button type="button" class="ov-btn ov-btn-ghost" data-act="print">Imprimir prévia</button></div>';
+  const rec = S.contracts.find((item) => item.id === doc.id);
+  if (!rec) return '';
+  const pad = rec.signature ? '' : '<p class="lbl">Assinatura do comprador</p><canvas id="pad"></canvas><button type="button" class="ov-btn ov-btn-ghost" data-act="clear-pad">Limpar</button>';
+  const back = '<button type="button" class="ov-btn ov-btn-ghost" data-act="live-preview">Voltar à prévia</button>';
+  return '<div class="pad-box no-print">' + pad + '<div class="row-btns">' + back + actionButtons(rec) + '</div></div>';
+}
+function numbersHtml(quote, withNote) {
+  if (!selectedLots().length) return '<p class="muted">Selecione uma unidade na tabela para entrar os valores.</p>';
+  const parcelaLabel = quote.flowId === 'direto' ? 'Parcela · ' + quote.term + 'x' : 'Parcela';
+  const parcela = quote.flowId === 'avista' ? 'Quitação única' : money(quote.parcela);
+  const extra = [quote.discountLabel, withNote ? quote.note : ''].filter(Boolean).join(' · ');
+  return '<div class="money-stack"><div><span>Tabela do conjunto</span><strong>' + money(quote.table) + '</strong></div><div><span>Valor de venda</span><strong>' + money(quote.sale) + '</strong></div><div><span>Entrada</span><strong>' + money(quote.entrada) + '</strong></div><div><span>Saldo</span><strong>' + money(quote.saldo) + '</strong></div><div><span>' + parcelaLabel + '</span><strong>' + parcela + '</strong></div><div class="big"><span>Comissão 6%</span><strong>' + money(quote.commission) + '</strong></div></div>' +
+    (extra ? '<p class="muted" style="margin-top:8px">' + esc(extra) + '</p>' : '');
+}
+function lotLinesHtml() {
+  const lots = selectedLots();
+  if (!lots.length) return '<p class="muted">Nenhuma unidade selecionada. Clique na tabela.</p>';
+  const quote = currentQuote();
+  const priced = quote.lines.map((line) => '<p><strong>' + esc(line.lot.id) + '</strong> · ' + esc(line.lot.tipo) + ' · ' + formatArea(line.lot.area) + ' m² · ' + money(line.value) + '</p>').join('');
+  return priced + '<p class="muted" style="margin-top:8px">' + esc(quote.note) + '</p>';
+}
+function lotSummaryHtml() {
+  const lots = selectedLots();
+  const button = '<button type="button" class="ov-btn ov-btn-ghost" data-act="go" data-view="planta">' + (lots.length ? 'Trocar na tabela' : 'Abrir a tabela') + '</button>';
+  if (!lots.length) return '<p class="muted">Nenhuma unidade marcada.</p>' + button;
+  const body = lots.map((lot) => lot.id + ' · ' + lot.tipo + ' · ' + formatArea(lot.area) + ' m² · ' + money(lot.price)).join('<br>');
+  return '<p>' + body + '</p>' + button;
+}
+function flowControlsHtml() {
+  const flows = FLOWS.map((item) => '<button type="button" class="flow' + (S.draft.flowId === item.id ? ' is-on' : '') + '" data-act="flow" data-flow="' + item.id + '"><strong>' + item.short + '</strong><small>' + item.tag + '</small></button>').join('');
+  return '<div class="flows">' + flows + '</div><p class="hint" style="margin-top:10px">Tabela de 16.10.2026. Direto: 10% de entrada e saldo em 72 parcelas, com correção pelo CUB/SC. À vista: valor integral, sem desconto lançado na tabela.</p>';
+}
+function option(value, label, current) {
+  return '<option value="' + esc(value) + '"' + (value === current ? ' selected' : '') + '>' + esc(label) + '</option>';
+}
+function ufOptions(current) { return UFS.map((uf) => option(uf, uf, current)).join(''); }
+function navBtn(view, label) {
+  return '<button type="button" class="nav-btn' + (S.view === view ? ' is-on' : '') + '" data-act="go" data-view="' + view + '">' + label + '</button>';
+}
+function shell(inner) {
+  return '<div class="grain no-print"></div><div class="shell"><aside class="side no-print"><div class="brand">' + logo(32) + '<span><strong>YES</strong><small>Construtora</small></span></div><p class="who">Olá, ' + esc(S.rep.fullName.split(' ')[0]) + '<br>' + esc(S.rep.city) + '/' + esc(S.rep.state) + '</p><nav class="nav">' +
+    navBtn('inicio', 'Início') + navBtn('carteira', 'Carteira') + navBtn('planta', 'Tabela') + navBtn('contratos', 'Contratos') + navBtn('comissoes', 'Comissões') + navBtn('painel', 'Painel') +
+    '</nav><button type="button" class="logout" data-act="logout">Sair</button><p class="side-foot">' + esc(S.project.name) + '</p></aside><main class="main">' + inner + '</main></div>';
+}
+function stat(label, value, hint) {
+  return '<article class="ov-card stat"><span>' + label + '</span><strong>' + value + '</strong><em>' + hint + '</em></article>';
+}
+function pageInicio() {
+  const tally = counts();
+  const mix = {
+    avista: S.contracts.filter((item) => item.flowId === 'avista').length,
+    direto: S.contracts.filter((item) => item.flowId === 'direto').length,
+    financiamento: S.contracts.filter((item) => item.flowId === 'financiamento').length,
+  };
+  const total = S.contracts.reduce((acc, item) => acc + item.commission, 0);
+  const due = S.contracts.filter((item) => item.commissionStatus === 'a_receber').reduce((acc, item) => acc + item.commission, 0);
+  const got = S.contracts.filter((item) => item.commissionStatus === 'recebido').reduce((acc, item) => acc + item.commission, 0);
+  const pend = S.contracts.filter((item) => item.commissionStatus === 'pendente').reduce((acc, item) => acc + item.commission, 0);
+  const fu = followups();
+  const follow = fu.length
+    ? '<article class="ov-card pad" style="margin-top:16px"><h2>Follow-up</h2><p class="muted" style="margin-top:8px">' + fu.length + ' interessado(s) sem toque em 7 dias: ' + esc(fu.map((item) => item.name).join(', ')) + '.</p><button type="button" class="ov-btn ov-btn-gold" style="margin-top:12px" data-act="go" data-view="carteira">Abrir carteira</button></article>'
+    : '';
+  return '<p class="ov-kicker">YES Construtora</p><h1>Olá, ' + esc(S.rep.fullName.split(' ')[0]) + '.</h1><p class="lead">Praça ' + esc(S.rep.city) + '/' + esc(S.rep.state) + '. Comissão de 6% do valor de venda. ' + tally.disponivel + ' unidades disponíveis em ' + esc(S.project.name) + ', pela tabela de 16.10.2026.</p>' +
+    '<div class="stats">' + stat('Clientes', String(S.clients.length), 'carteira neste navegador') + stat('Contratos', String(S.contracts.length), mix.avista + ' à vista · ' + mix.direto + ' direto') + stat('Comissão total', money(total), '6% do valor de venda') + '</div>' +
+    '<div class="stats">' + stat('A receber', money(due), 'Próxima segunda, ' + formatDate(nextMonday())) + stat('Recebido', money(got), 'Já creditado') + stat('Pendente', money(pend), 'Pagamento ainda não confirmado') + '</div>' +
+    follow +
+    '<div class="cards-2"><button type="button" class="ov-card linkcard" data-act="go" data-view="planta"><h2>Tabela de vendas</h2><p class="muted">Unidades, metragens, boxes e valores de 16.10.2026. O clique entra na conta.</p></button><button type="button" class="ov-card linkcard" data-act="go" data-view="contratos"><h2>Gerar minuta</h2><p class="muted">O texto usa a unidade, o valor de tabela e o plano direto ou à vista.</p></button></div>';
+}
+function pageCarteira() {
+  const visible = S.clients.filter((item) => S.ui.filter === 'todos' || item.status === S.ui.filter);
+  const filters = FILTERS.map(([id, label]) => '<button type="button" data-act="filter" data-value="' + id + '" class="' + (S.ui.filter === id ? 'is-on' : '') + '">' + label + '</button>').join('');
+  const cards = visible.length ? visible.map((client) => {
+    const stale = client.status === 'prospecto' && daysBetween(client.lastTouchAt) >= FOLLOWUP_DAYS;
+    const wa = client.whatsapp ? '<a href="' + whatsappHref(client.whatsapp) + '" target="_blank" rel="noreferrer">WhatsApp</a>' : '';
+    return '<article class="ov-card pad"><div class="spread"><div><strong>' + esc(client.name) + '</strong><p class="client-meta">' + (client.kind === 'pj' ? 'Pessoa jurídica' : 'Pessoa física') + ' · ' + esc(client.doc || 'sem documento') + '<br>' + esc(client.city) + (client.state ? '/' + esc(client.state) : '') + ' · ' + (client.origem === 'imobiliaria' ? esc(client.imobiliaria || 'Imobiliária') : 'Autônomo') + (stale ? ' · sem toque' : '') + '</p></div><div class="row-btns">' + wa + '<button type="button" class="linkish" data-act="edit-client" data-id="' + client.id + '">Editar</button><button type="button" class="linkish" data-act="touch" data-id="' + client.id + '">Toque</button><select class="slim" data-client-status="' + client.id + '">' + option('prospecto', 'Interessado', client.status) + option('ativo', 'Em negociação', client.status) + option('perdido', 'Perdido', client.status) + '</select></div></div></article>';
+  }).join('') : '<p class="muted">Nenhum cliente neste filtro.</p>';
+  const f = S.form;
+  const pf = f.kind === 'pf';
+  const personFields = pf
+    ? '<label class="field"><span>CPF</span><input data-form="doc" data-mask="doc" value="' + esc(f.doc) + '"></label><div class="grid-2"><label class="field"><span>RG</span><input data-form="rg" value="' + esc(f.rg) + '"></label><label class="field"><span>Estado civil</span><select data-form="civil">' + ['solteiro(a)','casado(a)','divorciado(a)','viúvo(a)','união estável'].map((item) => option(item, item, f.civil)).join('') + '</select></label></div><label class="field"><span>Profissão</span><input data-form="profession" value="' + esc(f.profession) + '"></label>'
+    : '<div class="cnpj-row"><label class="field"><span>CNPJ</span><input data-form="doc" data-mask="doc" value="' + esc(f.doc) + '"></label><button type="button" class="ov-btn ov-btn-ghost" data-act="cnpj"' + (S.ui.looking ? ' disabled' : '') + '>' + (S.ui.looking ? 'Buscando…' : 'Buscar') + '</button></div><p class="err">' + esc(S.ui.lookupError) + '</p><div class="grid-2"><label class="field"><span>Responsável</span><input data-form="contactName" value="' + esc(f.contactName) + '"></label><label class="field"><span>Cargo</span><input data-form="role" value="' + esc(f.role) + '"></label></div>';
+  return '<div class="carteira"><div><p class="ov-kicker">Carteira</p><h1>Clientes</h1><p class="lead">Pessoa física ou jurídica no lugar do cadastro de hotel. Interessados, negociação e perdidos.</p><div class="seg" style="margin-top:14px">' + filters + '</div><div class="stack">' + cards + '</div><details class="ov-card pad" style="margin-top:12px"><summary>Importar lista</summary><form data-act="import-leads"><label class="field"><span>Uma linha por cliente: nome; documento; cidade; whatsapp</span><textarea id="import-text" placeholder="Helena Souza; 11111111111; Porto Belo; 47999999999"></textarea></label><button class="ov-btn ov-btn-ghost" type="submit">Importar</button><p class="muted" style="margin-top:8px">' + esc(S.ui.importMsg) + '</p></form></details></div>' +
+    '<form class="ov-card pad carteira-form" data-act="save-client" autocomplete="off"><h2>' + (S.ui.editing ? 'Editar cliente' : 'Novo cliente') + '</h2><div class="seg" style="margin-top:12px"><button type="button" data-act="kind" data-kind="pf" class="' + (pf ? 'is-on' : '') + '">Pessoa física</button><button type="button" data-act="kind" data-kind="pj" class="' + (pf ? '' : 'is-on') + '">Pessoa jurídica</button></div><label class="field"><span>' + (pf ? 'Nome' : 'Razão social') + '</span><input data-form="name" required value="' + esc(f.name) + '"></label>' + personFields +
+    '<label class="field"><span>Endereço</span><input data-form="address" value="' + esc(f.address) + '"></label><div class="city-uf"><label class="field"><span>Cidade</span><input data-form="city" value="' + esc(f.city) + '"></label><label class="field"><span>UF</span><select data-form="state">' + ufOptions(f.state) + '</select></label></div><div class="grid-2"><label class="field"><span>WhatsApp</span><input data-form="whatsapp" data-mask="phone" value="' + esc(f.whatsapp) + '"></label><label class="field"><span>E-mail</span><input data-form="email" value="' + esc(f.email) + '"></label></div><label class="field"><span>Notas</span><textarea data-form="notes">' + esc(f.notes) + '</textarea></label><label class="field"><span>Origem</span><select data-form="origem">' + option('autonomo', 'Corretor autônomo', f.origem) + option('imobiliaria', 'Imobiliária parceira', f.origem) + '</select></label><div id="bloco-imob"' + (f.origem === 'imobiliaria' ? '' : ' hidden') + '><label class="field"><span>Imobiliária</span><input data-form="imobiliaria" value="' + esc(f.imobiliaria) + '"></label></div><label class="field"><span>Situação</span><select data-form="status">' + option('prospecto', 'Interessado', f.status) + option('ativo', 'Em negociação', f.status) + option('perdido', 'Perdido', f.status) + '</select></label><div class="row-btns"><button class="ov-btn ov-btn-gold" type="submit">' + (S.ui.editing ? 'Salvar cliente' : 'Cadastrar cliente') + '</button>' + (S.ui.editing ? '<button type="button" class="ov-btn ov-btn-ghost" data-act="cancel-edit">Cancelar</button>' : '') + '</div></form></div>';
+}
+function lotBtn(lot) {
+  const status = displayStatus(lot);
+  const index = S.draft.lotIds.indexOf(lot.id);
+  const locked = isLocked(lot);
+  return '<button type="button" class="lot ' + status + (index >= 0 ? ' is-on' : '') + (locked ? ' is-lock' : '') + '" data-act="lot" data-lot="' + lot.id + '" title="' + (locked ? 'Indisponível' : 'Selecionar lote') + '">' + (index >= 0 ? '<span class="ord">' + (index + 1) + '</span>' : '') + '<strong>' + lot.id + '</strong><span>' + lot.area + ' m²</span></button>';
+}
+function lotRows() {
+  const q = S.ui.lotSearch.trim().toLowerCase();
+  const rows = S.lots.filter((lot) => {
+    const status = displayStatus(lot);
+    if (S.ui.lotFilter !== 'todos' && status !== S.ui.lotFilter) return false;
+    if (S.ui.tipoFilter !== 'todos' && lot.tipo !== S.ui.tipoFilter) return false;
+    if (!q) return true;
+    return (lot.id + ' ' + lot.tipo + ' ' + (lot.box || '')).toLowerCase().includes(q);
+  });
+  if (!rows.length) return '<tr><td colspan="7" class="muted">Nenhuma unidade neste filtro.</td></tr>';
+  return rows.map((lot) => {
+    const status = displayStatus(lot);
+    const on = S.draft.lotIds.includes(lot.id) ? ' is-on' : '';
+    const lock = isLocked(lot) ? ' is-lock' : '';
+    const dorm = lot.kind === 'moto' ? '—' : String(lot.dorms);
+    return '<tr class="' + on + lock + '" data-act="lot" data-lot="' + esc(lot.id) + '"><td>' + esc(lot.id) + '</td><td>' + formatArea(lot.area) + '</td><td>' + esc(lot.tipo) + '</td><td>' + dorm + '</td><td>' + esc(lot.box || '—') + '</td><td>' + money(lot.price) + '</td><td>' + STATUS_LABEL[status] + '</td></tr>';
+  }).join('');
+}
+function pagePlanta() {
+  const tally = counts();
+  const legend = '<span><i class="sw disponivel"></i> Disponíveis ' + tally.disponivel + '</span><span><i class="sw reservado"></i> Reservados ' + tally.reservado + '</span><span><i class="sw vendido"></i> Vendidos ' + tally.vendido + '</span><span><i class="sw is-on"></i> Seleção</span>';
+  const filters = LOT_FILTERS.map(([id, label]) => '<button type="button" data-act="lot-filter" data-value="' + id + '" class="' + (S.ui.lotFilter === id ? 'is-on' : '') + '">' + label + '</button>').join('');
+  const tipos = [['todos', 'Todos'], ['Studio', 'Studio'], ['Apto', 'Apto'], ['Loft', 'Loft'], ['Box moto', 'Box moto']].map(([id, label]) => '<button type="button" data-act="tipo-filter" data-value="' + id + '" class="' + (S.ui.tipoFilter === id ? 'is-on' : '') + '">' + label + '</button>').join('');
+  const book = window.ABSOLUTO || {};
+  return '<p class="ov-kicker">Tabela de vendas</p><h1>' + esc(S.project.name) + '</h1><p class="lead">A mesma tabela de 16.10.2026 do site. Clique a unidade. O valor de tabela, a entrada e a comissão entram ao lado.</p><div class="plan-layout" style="margin-top:18px"><div><div class="ov-card table-wrap"><div class="table-tools"><input id="lot-search" data-role="lot-search" placeholder="Buscar unidade, tipo ou box" value="' + esc(S.ui.lotSearch) + '"><div class="seg">' + tipos + '</div><div class="seg">' + filters + '</div></div><p class="muted">' + esc(book.address || '') + ' · ' + esc(S.project.city) + '/' + esc(S.project.state) + ' · ' + S.lots.filter((lot) => lot.kind !== 'moto').length + ' unidades</p><table><thead><tr><th>Unidade</th><th>m²</th><th>Tipo</th><th>Dorm.</th><th>Box</th><th>Valor</th><th>Situação</th></tr></thead><tbody id="lot-rows">' + lotRows() + '</tbody></table><div class="legend">' + legend + '</div><p class="hint" style="margin-top:10px">' + esc((book.note || '') + ' ' + (book.payment || '')) + '</p></div></div>' +
+    '<aside class="ov-card lot-panel"><p class="ov-kicker">Seleção</p><h2>Valores da unidade</h2><div id="panel-lines">' + lotLinesHtml() + '</div>' + flowControlsHtml() + '<div id="panel-numbers">' + numbersHtml(currentQuote(), false) + '</div><button type="button" class="ov-btn ov-btn-gold" data-act="go" data-view="contratos">Levar ao contrato</button></aside></div>';
+}
+
+function contractListHtml() {
+  const items = S.contracts.slice().sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  if (!items.length) return '<p class="muted">Nenhuma minuta ainda.</p>';
+  return items.map((rec) => '<button type="button" class="item' + (S.ui.previewId === rec.id ? ' is-on' : '') + '" data-act="open-contract" data-id="' + rec.id + '"><strong>' + esc(rec.number) + '</strong><span>' + esc(rec.snapshot.client.name) + ' · ' + esc(rec.lotIds.join(', ')) + ' · ' + CONTRACT_LABEL[rec.status] + ' · ' + COMMISSION_LABEL[rec.commissionStatus] + ' · ' + money(rec.commission) + '</span></button>').join('');
+}
+function hostInitial() {
+  if (S.ui.contractMode === 'record') {
+    const rec = S.contracts.find((item) => item.id === S.ui.previewId);
+    if (rec) return sheetHtml(docFromRecord(rec));
+    S.ui.contractMode = 'live';
+  }
+  return sheetHtml(liveDoc());
+}
+function pageContratos() {
+  const reason = blockReason();
+  return '<p class="ov-kicker">Contratos</p><h1>Minuta da unidade</h1><p class="lead">O texto usa a unidade marcada, o valor de tabela e o plano direto ou à vista. Comissão de 6% sobre o valor de venda.</p><div class="split"><div class="ov-card pad" id="builder"><label class="field"><span>Comprador</span><select data-draft="clientId">' + '<option value="">Escolha o comprador</option>' + S.clients.map((item) => option(item.id, item.name, S.draft.clientId)).join('') + '</select></label><div class="field"><span>Unidades</span><div id="lot-summary">' + lotSummaryHtml() + '</div></div>' + flowControlsHtml() +
+    '<label class="check"><input type="checkbox" data-draft="itbiComprador"' + (S.draft.itbiComprador ? ' checked' : '') + '> ITBI e registro por conta do comprador</label><label class="check"><input type="checkbox" data-draft="permuta"' + (S.draft.permuta ? ' checked' : '') + '> Permuta parcial</label><label class="field"><span>Vagas extras a orçar</span><input type="number" min="0" data-draft="vagas" data-num="1" value="' + Number(S.draft.vagas || 0) + '"></label><div id="quote-box">' + quoteBoxInner() + '</div><p id="block-reason" class="err">' + esc(reason) + '</p><button type="button" class="ov-btn ov-btn-gold" id="btn-generate" data-act="generate"' + (reason ? ' disabled' : '') + '>Gerar minuta</button><p class="hint" style="margin-top:8px">Direto: 10% de entrada e saldo em 72x, correção pelo CUB/SC. À vista: valor integral da tabela.</p></div><div class="ov-card pad"><h2>Minutas</h2>' + contractListHtml() + '</div></div><div id="contract-host">' + hostInitial() + '</div>';
+}
+function quoteBoxInner() {
+  const warn = S.ui.contractMode === 'record' ? '<p class="muted">A minuta aberta é a que foi salva. Os valores abaixo seguem as marcações atuais.</p>' : '';
+  return warn + numbersHtml(currentQuote(), true);
+}
+function pageComissoes() {
+  const items = S.contracts.slice().sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  const due = items.filter((item) => item.commissionStatus === 'a_receber');
+  const totalDue = due.reduce((acc, item) => acc + item.commission, 0);
+  const rows = items.length ? items.map((rec) => '<article class="ov-card pad spread"><div><strong>' + esc(rec.number) + ' · ' + esc(rec.snapshot.client.name) + '</strong><p class="client-meta">' + esc(rec.lotIds.join(', ')) + ' · ' + esc(flowById(rec.flowId).name) + ' · venda ' + money(rec.sale) + '</p></div><div><strong>' + money(rec.commission) + '</strong><p class="client-meta">' + COMMISSION_LABEL[rec.commissionStatus] + ' · ' + CONTRACT_LABEL[rec.status] + '</p></div></article>').join('') : '<p class="muted">Nenhuma comissão ainda.</p>';
+  return '<p class="ov-kicker">Comissões</p><h1>6% do valor de venda</h1><p class="lead">' + due.length + ' comissão(ões) a receber · ' + money(totalDue) + '. A parcela não entra de novo. Próxima segunda, ' + formatDate(nextMonday()) + '.</p><div class="stack">' + rows + '</div><button type="button" class="ov-btn ov-btn-ghost" style="margin-top:14px" data-act="go" data-view="painel">Dar baixa no painel</button>';
+}
+function orgField(group, key, label) {
+  return '<label class="field"><span>' + label + '</span><input data-' + group + '="' + key + '" value="' + esc(S[group][key] || '') + '"></label>';
+}
+function pagePainel() {
+  const due = S.contracts.filter((item) => item.commissionStatus === 'a_receber');
+  const totalDue = due.reduce((acc, item) => acc + item.commission, 0);
+  const rows = S.contracts.length ? S.contracts.slice().sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map((rec) => '<article class="ov-card pad spread"><div><strong>' + esc(rec.number) + ' · ' + esc(rec.snapshot.client.name) + '</strong><p class="client-meta">' + esc(S.rep.fullName) + ' · ' + money(rec.commission) + '</p></div><select class="slim" data-commission="' + rec.id + '">' + ['pendente','a_receber','recebido','bloqueado'].map((item) => option(item, COMMISSION_LABEL[item], rec.commissionStatus)).join('') + '</select></article>').join('') : '<p class="muted">Nenhum contrato ainda.</p>';
+  return '<p class="ov-kicker">Incorporadora</p><h1>Painel</h1><p class="lead">Dados que entram na minuta e baixa da comissão. Tudo fica só neste navegador.</p><div class="split"><div class="ov-card pad"><h2>Incorporadora</h2>' + orgField('company', 'legalName', 'Razão social') + orgField('company', 'cnpj', 'CNPJ') + orgField('company', 'address', 'Endereço') + orgField('company', 'email', 'E-mail') + '<h2 style="margin-top:18px">Empreendimento</h2>' + orgField('project', 'name', 'Nome') + '<div class="city-uf">' + orgField('project', 'city', 'Cidade') + orgField('project', 'state', 'UF') + '</div>' + orgField('project', 'registry', 'Matrícula') + '</div><div class="ov-card pad"><h2>Corretor da apresentação</h2>' + orgField('rep', 'fullName', 'Nome') + orgField('rep', 'creci', 'CRECI') + orgField('rep', 'kind', 'Atuação') + orgField('rep', 'phone', 'Telefone') + '<div class="city-uf">' + orgField('rep', 'city', 'Cidade') + orgField('rep', 'state', 'UF') + '</div><p id="org-note" class="muted" style="margin-top:12px">Minutas novas usam este texto. As já geradas ficam como foram salvas.</p><h2 style="margin-top:22px">Regras deste empreendimento</h2><p class="muted" style="margin-top:8px">Comissão de 6% sobre o valor de venda da tabela de 16.10.2026. Direto com a construtora: entrada de 10% e saldo em até 72 parcelas, com correção pelo CUB/SC. À vista: valor integral, sem desconto lançado na tabela.</p></div></div>' +
+    '<div style="margin-top:18px" class="spread"><div><h2>Comissões a pagar</h2><p class="muted" style="margin-top:6px">' + due.length + ' a receber · ' + money(totalDue) + '</p></div><button type="button" class="ov-btn ov-btn-gold" data-act="pay-all"' + (due.length ? '' : ' disabled') + '>Marcar comissões da segunda como pagas</button></div><div class="stack">' + rows + '</div><button type="button" class="ov-btn ov-btn-ghost" style="margin-top:16px" data-act="reset">Restaurar dados de apresentação</button>';
+}
+function page() {
+  if (S.view === 'carteira') return pageCarteira();
+  if (S.view === 'planta') return pagePlanta();
+  if (S.view === 'contratos') return pageContratos();
+  if (S.view === 'comissoes') return pageComissoes();
+  if (S.view === 'painel') return pagePainel();
+  return pageInicio();
+}
+function loginHtml() {
+  return '<div class="grain"></div><div class="gate"><div class="gate-card"><div class="brand">' + logo(42) + '<span><strong>YES</strong><small>Construtora</small></span></div><p class="ov-kicker" style="margin-top:28px">Área dos corretores</p><h1>Olá.</h1><p class="lead">Absoluto Residence, Porto Belo. Entre para ver a tabela de vendas e as minutas.</p><button type="button" class="google-btn" id="google-login">' + googleMark() + '<span>Entrar com o Google</span></button><p class="hint" style="margin-top:14px">Demonstração. O Google ainda não confere a conta de verdade. Este botão entra como David.</p></div></div>';
+}
+function render(opts) {
+  if (!authed()) {
+    app.innerHTML = loginHtml();
+    document.title = 'Entrar · YES Construtora';
+    const btn = document.getElementById('google-login');
+    if (btn) btn.addEventListener('click', () => {
+      btn.disabled = true;
+      const label = btn.querySelector('span');
+      if (label) label.textContent = 'Conectando…';
+      window.setTimeout(() => {
+        sessionStorage.setItem(AUTH_KEY, 'david');
+        render({ top: true });
+      }, 700);
+    });
+    return;
+  }
+  const top = opts && opts.top;
+  const y = top ? 0 : window.scrollY;
+  app.innerHTML = shell(page());
+  document.title = (TITLES[S.view] || 'CRM') + ' — YES Construtora';
+  bindPad();
+  window.scrollTo(0, y);
+}
+function go(view) {
+  S.view = view;
+  persist();
+  render({ top: true });
+}
+function syncMarks() {
+  document.querySelectorAll('[data-act="flow"]').forEach((btn) => btn.classList.toggle('is-on', btn.dataset.flow === S.draft.flowId));
+  document.querySelectorAll('[data-act="term"]').forEach((btn) => btn.classList.toggle('is-on', Number(btn.dataset.term) === Number(S.draft.term)));
+  document.querySelectorAll('[data-act="rate"]').forEach((btn) => btn.classList.toggle('is-on', Number(btn.dataset.rate) === Number(S.draft.entradaRate)));
+  const direto = document.getElementById('bloco-direto');
+  const fin = document.getElementById('bloco-fin');
+  if (direto) direto.hidden = S.draft.flowId !== 'direto';
+  if (fin) fin.hidden = S.draft.flowId !== 'financiamento';
+}
+function paintLive() {
+  const lines = document.getElementById('panel-lines');
+  if (lines) lines.innerHTML = lotLinesHtml();
+  const nums = document.getElementById('panel-numbers');
+  if (nums) nums.innerHTML = numbersHtml(currentQuote(), false);
+  const sum = document.getElementById('lot-summary');
+  if (sum) sum.innerHTML = lotSummaryHtml();
+  const quote = document.getElementById('quote-box');
+  if (quote) quote.innerHTML = quoteBoxInner();
+  const reason = blockReason();
+  const btn = document.getElementById('btn-generate');
+  if (btn) btn.disabled = Boolean(reason);
+  const why = document.getElementById('block-reason');
+  if (why) why.textContent = reason;
+  if (S.ui.contractMode === 'live') {
+    const host = document.getElementById('contract-host');
+    if (host) host.innerHTML = sheetHtml(liveDoc());
+  }
+}
+function paintLots() {
+  document.querySelectorAll('[data-lot]').forEach((el) => {
+    const index = S.draft.lotIds.indexOf(el.dataset.lot);
+    el.classList.toggle('is-on', index >= 0);
+    if (!el.classList.contains('lot')) return;
+    let badge = el.querySelector('.ord');
+    if (index >= 0) {
+      if (!badge) el.insertAdjacentHTML('afterbegin', '<span class="ord">' + (index + 1) + '</span>');
+      else badge.textContent = String(index + 1);
+    } else if (badge) badge.remove();
+  });
+}
+function toggleLot(id) {
+  const lot = S.lots.find((item) => item.id === id);
+  if (!lot || isLocked(lot)) return;
+  const index = S.draft.lotIds.indexOf(id);
+  if (index >= 0) S.draft.lotIds.splice(index, 1);
+  else S.draft.lotIds.push(id);
+  persist();
+  paintLots();
+  syncMarks();
+  paintLive();
+}
+function setDraft(key, value) {
+  S.draft[key] = value;
+  persist();
+  syncMarks();
+  paintLive();
+}
+function loadClient(id) {
+  const client = clientOf(id);
+  if (!client) return;
+  S.ui.editing = id;
+  S.form = {
+    kind: client.kind, name: client.name, doc: client.doc, rg: client.rg || '', civil: client.civil || 'solteiro(a)',
+    profession: client.profession || '', contactName: client.contactName || '', role: client.role || '',
+    address: client.address || '', city: client.city || '', state: client.state || 'RS', whatsapp: client.whatsapp || '',
+    email: client.email || '', notes: client.notes || '', origem: client.origem || 'autonomo',
+    imobiliaria: client.imobiliaria || '', status: client.status || 'prospecto',
+  };
+  render();
+}
+function saveClient() {
+  const form = S.form;
+  if (!form.name.trim()) return;
+  const now = new Date().toISOString();
+  if (S.ui.editing) {
+    const current = clientOf(S.ui.editing);
+    if (current) Object.assign(current, form, { name: form.name.trim() });
+  } else {
+    S.clients.unshift(Object.assign({}, form, { name: form.name.trim(), id: uid('cli'), createdAt: now, lastTouchAt: now }));
+  }
+  S.form = emptyForm();
+  S.ui.editing = null;
+  S.ui.lookupError = '';
+  persist();
+  render();
+}
+function touch(id) {
+  const client = clientOf(id);
+  if (!client) return;
+  client.lastTouchAt = new Date().toISOString();
+  persist();
+  render();
+}
+async function buscarCnpj() {
+  const digits = String(S.form.doc || '').replace(/\D/g, '');
+  if (digits.length !== 14) {
+    S.ui.lookupError = 'CNPJ precisa ter 14 dígitos.';
+    render();
+    return;
+  }
+  S.ui.looking = true;
+  S.ui.lookupError = '';
+  render();
+  try {
+    const res = await fetch('https://brasilapi.com.br/api/cnpj/v1/' + digits);
+    if (!res.ok) throw new Error('CNPJ não encontrado');
+    const data = await res.json();
+    S.form.name = data.nome_fantasia || data.razao_social || S.form.name;
+    S.form.doc = maskCnpj(digits);
+    const street = [data.logradouro, data.numero].filter(Boolean).join(', ');
+    S.form.address = [street, data.bairro].filter(Boolean).join(' — ') || S.form.address;
+    S.form.city = data.municipio || S.form.city;
+    S.form.state = data.uf || S.form.state;
+    S.ui.lookupError = '';
+  } catch (err) {
+    S.ui.lookupError = err instanceof Error ? err.message : 'CNPJ não encontrado';
+  } finally {
+    S.ui.looking = false;
+    render();
+  }
+}
+function runImport() {
+  const text = document.getElementById('import-text') ? document.getElementById('import-text').value : '';
+  const now = new Date().toISOString();
+  let n = 0;
+  text.split(/\r?\n/).map((line) => line.trim()).filter(Boolean).forEach((line) => {
+    const parts = line.split(/[;\t]/).map((item) => item.trim());
+    if (!parts[0]) return;
+    const digits = String(parts[1] || '').replace(/\D/g, '');
+    const kind = digits.length > 11 ? 'pj' : 'pf';
+    S.clients.unshift({
+      id: uid('cli'), kind, name: parts[0], doc: digits ? (kind === 'pj' ? maskCnpj(digits) : maskCpf(digits)) : '',
+      rg: '', civil: '', profession: '', contactName: '', role: '', address: '', city: parts[2] || '', state: 'RS',
+      whatsapp: maskPhone(parts[3] || ''), email: '', notes: '', origem: 'autonomo', imobiliaria: '',
+      status: 'prospecto', createdAt: now, lastTouchAt: now,
+    });
+    n += 1;
+  });
+  S.ui.importMsg = n ? n + ' cliente(s) importado(s).' : 'Nenhuma linha válida.';
+  persist();
+  render();
+}
+function generate() {
+  const reason = blockReason();
+  if (reason) return;
+  const rec = buildRecord(S, S.draft);
+  S.contracts.unshift(rec);
+  const client = clientOf(S.draft.clientId);
+  client.status = 'ativo';
+  client.lastTouchAt = rec.createdAt;
+  S.draft.lotIds = S.draft.lotIds.filter((id) => !rec.lotIds.includes(id));
+  S.ui.contractMode = 'record';
+  S.ui.previewId = rec.id;
+  S.padData = '';
+  S.padDirty = false;
+  persist();
+  render();
+  const host = document.getElementById('contract-host');
+  if (host) host.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function openContract(id) {
+  S.ui.contractMode = 'record';
+  S.ui.previewId = id;
+  S.padData = '';
+  S.padDirty = false;
+  render();
+  const host = document.getElementById('contract-host');
+  if (host) host.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function sendContract(id) {
+  const rec = S.contracts.find((item) => item.id === id);
+  if (!rec || rec.status !== 'rascunho') return;
+  rec.status = 'enviado';
+  rec.sentAt = new Date().toISOString();
+  persist();
+  render();
+}
+function sign(id) {
+  if (!S.padData) return;
+  const rec = S.contracts.find((item) => item.id === id);
+  if (!rec) return;
+  rec.signature = S.padData;
+  rec.signedAt = new Date().toISOString();
+  if (rec.status !== 'pago') rec.status = 'assinado';
+  S.padData = '';
+  S.padDirty = false;
+  persist();
+  render();
+}
+function markPaid(id) {
+  const rec = S.contracts.find((item) => item.id === id);
+  if (!rec || rec.status === 'pago') return;
+  rec.status = 'pago';
+  rec.paidAt = new Date().toISOString();
+  if (rec.commissionStatus !== 'bloqueado') rec.commissionStatus = 'a_receber';
+  persist();
+  render();
+}
+function discard(id) {
+  const rec = S.contracts.find((item) => item.id === id);
+  if (!rec || rec.status !== 'rascunho') return;
+  if (!window.confirm('Descartar esta minuta e liberar as unidades?')) return;
+  S.contracts = S.contracts.filter((item) => item.id !== id);
+  if (S.ui.previewId === id) {
+    S.ui.previewId = null;
+    S.ui.contractMode = 'live';
+  }
+  persist();
+  render();
+}
+function payAll() {
+  const now = new Date().toISOString();
+  S.contracts.forEach((item) => {
+    if (item.commissionStatus === 'a_receber') {
+      item.commissionStatus = 'recebido';
+      item.receivedAt = now;
+    }
+  });
+  persist();
+  render();
+}
+function resetDemo() {
+  if (!window.confirm('Restaurar os dados de apresentação deste navegador?')) return;
+  localStorage.removeItem(KEY);
+  S = seed();
+  persist();
+  render({ top: true });
+}
+function bindPad() {
+  const canvas = document.getElementById('pad');
+  if (!canvas || canvas.dataset.bound) return;
+  canvas.dataset.bound = '1';
+  const ctx = canvas.getContext('2d');
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = Math.max(1, Math.floor(rect.width * 2));
+  canvas.height = Math.max(1, Math.floor(rect.height * 2));
+  ctx.setTransform(2, 0, 0, 2, 0, 0);
+  ctx.lineWidth = 1.7;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = '#16120c';
+  ctx.fillStyle = '#16120c';
+  if (S.padData) {
+    const img = new Image();
+    img.onload = () => ctx.drawImage(img, 0, 0, rect.width, rect.height);
+    img.src = S.padData;
+  }
+  let drawing = false;
+  let moved = false;
+  let last = null;
+  const pos = (ev) => {
+    const box = canvas.getBoundingClientRect();
+    return { x: ev.clientX - box.left, y: ev.clientY - box.top };
+  };
+  canvas.addEventListener('pointerdown', (ev) => {
+    drawing = true;
+    moved = false;
+    last = pos(ev);
+    canvas.setPointerCapture(ev.pointerId);
+    ev.preventDefault();
+  });
+  canvas.addEventListener('pointermove', (ev) => {
+    if (!drawing) return;
+    const point = pos(ev);
+    ctx.beginPath();
+    ctx.moveTo(last.x, last.y);
+    ctx.lineTo(point.x, point.y);
+    ctx.stroke();
+    last = point;
+    moved = true;
+    ev.preventDefault();
+  });
+  const finish = () => {
+    if (!drawing) return;
+    drawing = false;
+    if (!moved && last) {
+      ctx.beginPath();
+      ctx.arc(last.x, last.y, 0.8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    S.padDirty = true;
+    S.padData = canvas.toDataURL();
+    const btn = document.getElementById('btn-sign');
+    if (btn) btn.disabled = false;
+  };
+  canvas.addEventListener('pointerup', finish);
+  canvas.addEventListener('pointercancel', finish);
+}
+function clearPad() {
+  S.padData = '';
+  S.padDirty = false;
+  const canvas = document.getElementById('pad');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.restore();
+  }
+  const btn = document.getElementById('btn-sign');
+  if (btn) btn.disabled = true;
+}
+function onClick(ev) {
+  const el = ev.target.closest('[data-act]');
+  if (!el || !app.contains(el)) return;
+  const act = el.dataset.act;
+  if (act === 'go') go(el.dataset.view);
+  else if (act === 'lot') toggleLot(el.dataset.lot);
+  else if (act === 'flow') setDraft('flowId', el.dataset.flow);
+  else if (act === 'term') setDraft('term', Number(el.dataset.term));
+  else if (act === 'rate') setDraft('entradaRate', Number(el.dataset.rate));
+  else if (act === 'kind') { S.form.kind = el.dataset.kind; render(); }
+  else if (act === 'filter') { S.ui.filter = el.dataset.value; render(); }
+  else if (act === 'lot-filter') { S.ui.lotFilter = el.dataset.value; render(); }
+  else if (act === 'tipo-filter') { S.ui.tipoFilter = el.dataset.value; render(); }
+  else if (act === 'logout') { sessionStorage.removeItem(AUTH_KEY); render({ top: true }); }
+  else if (act === 'edit-client') loadClient(el.dataset.id);
+  else if (act === 'cancel-edit') { S.form = emptyForm(); S.ui.editing = null; S.ui.lookupError = ''; render(); }
+  else if (act === 'touch') touch(el.dataset.id);
+  else if (act === 'cnpj') buscarCnpj();
+  else if (act === 'generate') generate();
+  else if (act === 'open-contract') openContract(el.dataset.id);
+  else if (act === 'live-preview') { S.ui.contractMode = 'live'; S.ui.previewId = null; render(); }
+  else if (act === 'send') sendContract(el.dataset.id);
+  else if (act === 'sign') sign(el.dataset.id);
+  else if (act === 'paid') markPaid(el.dataset.id);
+  else if (act === 'discard') discard(el.dataset.id);
+  else if (act === 'print') window.print();
+  else if (act === 'clear-pad') clearPad();
+  else if (act === 'pay-all') payAll();
+  else if (act === 'reset') resetDemo();
+}
+function readControl(el) {
+  if (el.dataset.form) {
+    S.form[el.dataset.form] = el.value;
+    if (el.dataset.mask) {
+      const masked = applyMask(el.dataset.mask, el.value);
+      el.value = masked;
+      S.form[el.dataset.form] = masked;
+    }
+    if (el.dataset.form === 'origem') {
+      const block = document.getElementById('bloco-imob');
+      if (block) block.hidden = el.value !== 'imobiliaria';
+    }
+    return;
+  }
+  if (el.dataset.company) { S.company[el.dataset.company] = el.value; touchOrg(); return; }
+  if (el.dataset.rep) { S.rep[el.dataset.rep] = el.value; touchOrg(); return; }
+  if (el.dataset.project) { S.project[el.dataset.project] = el.value; touchOrg(); return; }
+  if (el.dataset.draft) {
+    let value = el.type === 'checkbox' ? el.checked : el.value;
+    if (el.dataset.num) value = Math.max(0, Number(value) || 0);
+    S.draft[el.dataset.draft] = value;
+    persist();
+    paintLive();
+  }
+}
+function touchOrg() {
+  persist();
+  const note = document.getElementById('org-note');
+  if (note) note.textContent = 'Salvo neste navegador. Minutas novas usam este texto.';
+}
+function onInput(ev) {
+  const el = ev.target;
+  if (el.dataset && el.dataset.role === 'lot-search') {
+    S.ui.lotSearch = el.value;
+    const body = document.getElementById('lot-rows');
+    if (body) body.innerHTML = lotRows();
+    return;
+  }
+  if (el.dataset) readControl(el);
+}
+function onChange(ev) {
+  const el = ev.target;
+  if (!el.dataset) return;
+  if (el.dataset.clientStatus) {
+    const client = clientOf(el.dataset.clientStatus);
+    if (client) client.status = el.value;
+    persist();
+    render();
+    return;
+  }
+  if (el.dataset.commission) {
+    const rec = S.contracts.find((item) => item.id === el.dataset.commission);
+    if (rec) {
+      rec.commissionStatus = el.value;
+      if (el.value === 'recebido') rec.receivedAt = new Date().toISOString();
+    }
+    persist();
+    render();
+    return;
+  }
+  readControl(el);
+}
+function onSubmit(ev) {
+  ev.preventDefault();
+  const act = ev.target.dataset.act;
+  if (act === 'save-client') saveClient();
+  if (act === 'import-leads') runImport();
+}
+
+const app = document.getElementById('app');
+let S = load();
+app.addEventListener('click', onClick);
+app.addEventListener('input', onInput);
+app.addEventListener('change', onChange);
+app.addEventListener('submit', onSubmit);
+render({ top: true });
+</script>
+</body>
+</html>
